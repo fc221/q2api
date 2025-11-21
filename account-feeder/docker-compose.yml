@@ -11,6 +11,7 @@ services:
     env_file:
       - .env
     restart: unless-stopped
+    command: uvicorn app:app --host 0.0.0.0 --port 8001 --workers 4
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8001/health"]
       interval: 30s
